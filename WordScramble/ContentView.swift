@@ -10,15 +10,16 @@ import SwiftUI
 struct ContentView: View {
     let people = ["Finn", "Leia", "Luke","Ray"]
     var body: some View {
-        List {
-            ForEach(people, id:\.self){
-                
-                Text($0)
+        
+        if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt"){
+            //we found the file in the bundle
+            if let fileContents = try?
+                String(contentsOf :fileURL){
                 
             }
-            
-            
-        }.listStyle(GroupedListStyle())
+        }
+        
+       return Text("Hello World")
     }
 }
 
